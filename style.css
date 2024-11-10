@@ -1,0 +1,78 @@
+:root {
+    /* Define color variables */
+    --color-background: #121212;
+    --color-primary: #00ff00;
+    --color-secondary: #50fa7b;
+    --color-tertiary: #ffffff;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+#header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--color-secondary);
+}
+
+#table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+table {
+    width: 80%;
+    max-width: 800px;
+    text-align: left;
+    border-collapse: collapse; /* Ensures borders are clean */
+}
+
+th, td {
+    padding: 10px;
+}
+
+th {
+    color: var(--color-secondary);
+}
+
+tr:not(:last-child) {
+    border-bottom: 1px dotted var(--color-tertiary); /* Dotted line between rows */
+}
+
+td a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+#footer a {
+    color: var(--color-secondary); /* Matches the secondary color */
+    text-decoration: none;
+}
+
+#footer a:hover {
+    text-decoration: underline;
+}
+
+#footer p {
+    color: var(--color-tertiary);
+}
+
+a {
+    color: var(--color-secondary);
+    text-decoration: none;
+}

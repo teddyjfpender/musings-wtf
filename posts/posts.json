@@ -1,0 +1,14 @@
+[
+  {
+    "title": "First Blog Post",
+    "date": "2024-11-01",
+    "description": "An intro to my blog",
+    "file": "first-post.html"
+  },
+  {
+    "title": "Second Blog Post",
+    "date": "2024-11-02",
+    "description": "Not intro to my blog",
+    "file": "second-post.html"
+  }
+]
