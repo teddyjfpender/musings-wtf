@@ -1,14 +1,8 @@
 [
   {
-    "title": "First Blog Post",
-    "date": "2024-11-01",
-    "description": "An intro to my blog",
-    "file": "first-post.html"
-  },
-  {
-    "title": "Second Blog Post",
-    "date": "2024-11-02",
-    "description": "Not intro to my blog",
-    "file": "second-post.html"
+    "title": "Are STARKs The Endgame?",
+    "date": "2024-11-14",
+    "description": "A brief opinion piece on whether STARKs are the endgame for blockchain scalability.",
+    "file": "endgame.html"
   }
 ]

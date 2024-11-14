@@ -6,6 +6,32 @@
     --color-tertiary: #ffffff;
 }
 
+@keyframes themed-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.rainbow-text {
+    background: linear-gradient(45deg, 
+        var(--color-primary), 
+        #33ff33, /* Lighter shade of primary */
+        var(--color-secondary), 
+        #80ffaa, /* Lighter shade of secondary */
+        var(--color-tertiary), 
+        #e6e6e6 /* Softer white for smooth transition */
+    );
+    background-size: 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: themed-shift 3s ease infinite alternate; /* Alternate direction for smooth back-and-forth */
+}
+
+
 body {
     background-color: var(--color-background);
     color: var(--color-primary);
