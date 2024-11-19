@@ -139,7 +139,7 @@ a {
     overflow-x: auto; /* Allows horizontal scrolling for overflow */
     max-width: 100%; /* Prevents the content from exceeding the container width */
     font-family: monospace; /* Keeps the ASCII art in its intended style */
-    font-size: max(0.2rem, 1vmin);
-    margin: 0; /* Removes default margin, if any */
+    font-size: max(0.2rem, 1.5vmin);
+    margin: 10; /* Removes default margin, if any */
 }
 
