@@ -34,7 +34,7 @@
 
 body {
     background-color: var(--color-background);
-    color: var(--color-primary);
+    color: var(--color-tertiary);
     font-family: monospace;
     display: flex;
     flex-direction: column;
