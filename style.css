@@ -102,3 +102,34 @@ a {
     color: var(--color-secondary);
     text-decoration: none;
 }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px; /* Optional: Add spacing */
+    margin-bottom: 20px;
+}
+
+.post-content {
+    display: flex; /* Enables flexbox layout */
+    flex-direction: column; /* Keeps elements stacked vertically */
+    align-items: center; /* Centers child elements horizontally */
+    justify-content: center; /* Centers content vertically (optional) */
+    max-width: 800px; /* Limits the overall width of the container */
+    margin: 0 auto; /* Centers the container itself */
+    word-wrap: break-word; /* Prevents overflow of long words */
+    line-height: 1.6; /* Improves readability */
+}
+
+.post-content p {
+    width: 90%; /* Text takes up 50% of the container width */
+    text-align: justify; /* Makes the text evenly distributed across the width */
+}
+
+.post-content img {
+    display: block;
+    margin: 20px auto; /* Centers the image with spacing */
+    max-width: 100%; /* Ensures the image scales properly */
+    height: auto; /* Maintains aspect ratio */
+}
