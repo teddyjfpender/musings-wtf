@@ -135,10 +135,11 @@ a {
 }
 
 #header pre {
-    white-space: pre-wrap; /* Allows text to wrap while preserving spaces and line breaks */
-    word-wrap: break-word; /* Ensures long words or lines wrap properly */
-    overflow-wrap: break-word; /* For better compatibility with different browsers */
-    font-family: monospace; /* Optional: Keeps the preformatted text in a monospace font */
-    font-size: 12px; /* Optional: Adjusts the font size for better readability on mobile */
-    overflow-x: auto; /* Optional: Adds horizontal scrolling if the text is still too wide */
+    white-space: pre; /* Preserves the ASCII structure */
+    overflow-x: auto; /* Allows horizontal scrolling for overflow */
+    max-width: 100%; /* Prevents the content from exceeding the container width */
+    font-family: monospace; /* Keeps the ASCII art in its intended style */
+    font-size: 12px; /* Adjust font size for better visibility on smaller screens */
+    margin: 0; /* Removes default margin, if any */
 }
+
