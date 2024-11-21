@@ -12,6 +12,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Agentic Intent | musings.wtf</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="../images/favicon/musings-favicon.png">
+    <meta property="og:title" content="Agentic Intent | musings.wtf">
+    <meta property="og:description" content="When silicon speaks, will we listen?">
+    <meta property="og:image" content="../images/agentic-intent/agentic-intent-preview-image.png">
+    <meta property="og:url" content="https://musings.wtf">
+    <meta name="twitter:card" content="../images/agentic-intent/agentic-intent-twitter-card.png">
 </head>
 <body>
     <div id="header">
@@ -28,6 +34,17 @@ a blog by teddy
                     </pre>
     </div>
     <div class="post-content">
+        <section id="intro">
+            <h2>What are we musing about?</h2>
+            <p>
+                Every day, we use tools that seem to know us better than we know ourselves. Whether it’s your thermostat keeping you cosy, your sleep tracker suggesting improvements, or a bot sniffing out profits in a mempool, these systems embody new intelligence; they give us quick access to a fine-tuned daily experience.
+            </p>
+            <p>
+                <strong>Web3 agents aren't there yet</strong>, and their interaction design is improving, but we can improve it. These agents must transcend primary responses to truly serve us—anticipate, align, and act invisibly on our behalf.
+            </p>
+            <p>
+                This post is a first musing on what happens when we let agents take the wheel—not to replace us but to complement and empower us. From some background on machine perception to prediction markets,  this is a short post on how we can build agents that optimally execute according to our preferences and bring about easy access to more involved Web3 interactions?
+            </p>
         <section id="background">
             <h2>Some Background: Machine Perception</h2>
             <p>
@@ -74,7 +91,9 @@ a blog by teddy
         <section id="intent-based-agents">
             <h2>Intent-Based Agents: What’s Wrong with the Current Design?</h2>
             <p>
-                In Web3, intent-based agents often rely on users to articulate their objectives in natural language. You tell the agent what you want it to do and when (usually right now). But let’s be honest, <em>most of us are terrible at defining intent.</em>
+                In Web3, intent-based agents rely on users to articulate their objectives in natural language. You tell the agent what you want it to do and when (usually right now). But let’s be honest, <em>most of us are terrible at defining intent.</em>
+                This is my mental model of how it works (note: modulo inaccuracies):
+                <img src="../images/agentic-intent/intent-based-diagram.png" alt="Agentic Intent" margin="auto" display="block">
             </p>
             <p>
                 Think about it—how often can you clearly articulate your goals, risk tolerance, or utility functions in words? It’s a cognitive overload and, frankly, poor interaction design.
@@ -97,6 +116,10 @@ a blog by teddy
                 <li><strong>User’s Role</strong>: Explicitly define preferences, such as risk profile or broad goals (utility function variables).</li>
                 <li><strong>Agent’s Role</strong>: Propose actions based on a deep understanding of the world and its models.</li>
             </ul>
+            <p>
+                I think it looks a little something like this (note: this isn't too accurate, but you get the idea):
+                <img src="../images/agentic-intent/agentic-intent-diagram.png" alt="Agentic Intent" margin="auto" display="block">
+            </p>
             <p>
                 This shifts the interaction design from <strong>user-defined intent</strong> to <strong>agent-defined intent</strong>. The agent presents its intent (e.g., unsigned transactions optimized for the user’s goals), and the user approves or rejects them.
                 This approach reduces user friction, makes interactions more seamless, and allows agents to provide actionable insights instead of just options. This means users experiences can exist across a continuum of silicon convictions.
@@ -123,7 +146,7 @@ a blog by teddy
                 This is yet another continuum of user-dependence on an agent’s intent. Users can, for example, choose to interact with an agent's presented intent frequently; approve an agent’s intent, modify it, or ignore it entirely. Users can also choose to set and forget an agent’s intent, allowing it to act autonomously with total autonomy.
                 The key unlock is for any interaction with an end-user that the agent’s intent is clear and actionable, allowing users to make informed decisions. This is where LLMs become handy to help agents communicate their intent, not everyone understands an unsigned transaction with many mutli-calls that look to optimise a given utility function, LLMs can help bridge that gap.
             </p>
-            <img src="../images/agentic-convictions.png" alt="Silicon Convictions" margin="auto" display="block">
+            <img src="../images/agentic-intent/agentic-convictions.png" alt="Silicon Convictions" margin="auto" display="block">
             <p>
                 Imagine fantasy football but for ML models. Each agent starts with the same resources, competes in prediction markets, and is evaluated based on performance. This gamified environment showcases the power of these agents and encourages innovation in design and strategy.
             </p>

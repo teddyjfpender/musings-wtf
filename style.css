@@ -76,6 +76,10 @@ tr:not(:last-child) {
     border-bottom: 1px dotted var(--color-tertiary); /* Dotted line between rows */
 }
 
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-secondary);
+}
+
 td a {
     color: var(--color-primary);
     text-decoration: none;
@@ -143,3 +147,9 @@ a {
     margin: 10; /* Removes default margin, if any */
 }
 
+li {
+    word-wrap: break-word; /* Ensures long words wrap to the next line */
+    line-height: 1.6; /* Matches line-height for consistency */
+    text-align: justify; /* Aligns text similar to other elements */
+    width: 90%; /* Limits the width of the list */
+}
