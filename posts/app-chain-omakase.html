@@ -1,0 +1,157 @@
+<!--
+{
+  "title": "Starknet - App Chain Omakase",
+  "date": "2024-11-29",
+  "description": "An Omakase App Chain Experience on Starknet"
+}
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Starknet - App Chain Omakase | musings.wtf</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="../images/favicon/musings-favicon.png">
+    <meta property="og:title" content="Starknet - App Chain Omakase | musings.wtf">
+    <meta property="og:description" content="Omakase App Chain Experience on Starknet">
+    <meta property="og:image" content="../images/app-chain-omakase/app-chain-omakase-preview-image.png">
+    <meta property="og:url" content="https://musings.wtf">
+    <meta name="twitter:card" content="../images/app-chain-omakase/app-chain-omakase-twitter-card.png">
+    <style>
+        :root {
+            --color-primary: #D9B2FF;
+            --color-secondary: #D9B2FF;
+        }
+    </style>
+    <!-- Vercel Analytics Script -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+    <div id="header">
+        <a href="../index.html">&larr; Back to musings.wtf</a>
+        <pre>
+█████╗ ██████╗ ██████╗      ██████╗██╗  ██╗ █████╗ ██╗███╗   ██╗
+██╔══██╗██╔══██╗██╔══██╗    ██╔════╝██║  ██║██╔══██╗██║████╗  ██║
+███████║██████╔╝██████╔╝    ██║     ███████║███████║██║██╔██╗ ██║
+██╔══██║██╔═══╝ ██╔═══╝     ██║     ██╔══██║██╔══██║██║██║╚██╗██║
+██║  ██║██║     ██║         ╚██████╗██║  ██║██║  ██║██║██║ ╚████║
+╚═╝  ╚═╝╚═╝     ╚═╝          ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
+                                                                    
+      ██████╗ ███╗   ███╗ █████╗ ██╗  ██╗ █████╗ ███████╗███████╗     
+      ██╔═══██╗████╗ ████║██╔══██╗██║ ██╔╝██╔══██╗██╔════╝██╔════╝     
+      ██║   ██║██╔████╔██║███████║█████╔╝ ███████║███████╗█████╗       
+      ██║   ██║██║╚██╔╝██║██╔══██║██╔═██╗ ██╔══██║╚════██║██╔══╝       
+      ╚██████╔╝██║ ╚═╝ ██║██║  ██║██║  ██╗██║  ██║███████║███████╗     
+       ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝     
+                    
+a blog by teddy
+                    </pre>
+    </div>
+    <div class="post-content">
+        <section id="intro">
+            <p>
+                <em>Have you ever walked into a sushi bar and uttered the magic word "Omakase"? You're telling the chef, "I trust you—serve me your best." Now, imagine applying that level of bespoke service to and delivered by the Starknet ecosystem. Welcome to Starknet's App Chain Omakase.</em>
+            </p>
+        <section id="background">
+            <h2>ELI5: What Is an App Chain?</h2>
+            <p>
+                Before we explore the smorgasbord of possibilities, let's define an app chain in the simplest terms (almost ELI5).
+            </p>
+            <p>
+                An app chain is a specialized blockchain designed to extend or "scale" a primary blockchain by providing additional blockspace tailored for specific applications. Think of it as a custom side road that eases traffic from the main highway but is built specifically for certain types of vehicles. By definition, an app chain is application-specific; it doesn't aim to be a one-size-fits-all solution like general-purpose blockchains.
+            </p>
+            <p>
+                For my visual friends, here's what an app chain looks like (note: not quite ELI5 and not entirely correct either)
+                <img src="../images/app-chain-omakase/app-chain-diagram.jpeg" alt="Starknet Stack App Chain" margin="auto" display="block">
+            </p>
+        </section>
+        <section id="semantic-soup">
+            <h2>The Semantic Soup of App Chains</h2>
+            <p>
+                The term "app chain" often gets tossed around with little clarity, leading to confusion about what they truly offer. Semantics matter—a lot. Starknet, however, isn't confined to a single type of app chain (for developers, there's flexibility on the choice of framework; more on this later). It could offer an Omakase experience, providing a customizable experience tailored to diverse needs.
+                <img src="../images/app-chain-omakase/context-app-chain-omakase.jpeg" alt="Agentic Intent" margin="auto" display="block">
+            </p>
+            <h3>Contextualizing The Semantic Soup</h3>
+            <p>
+                We need context to appreciate the large set of possible app chain types that can exist on Starknet. These things come to mind when trying to better understand an app chain, but it is not an exhaustive list (i.e. I've avoided things like settlement and data availability to keep this post a little shorter!)
+            </p>
+            <h4>Audience Size--Who Is It For?</h4>
+            <ol>
+                <li><strong>One User</strong>--Imagine a co-processor designed just for you. It's like having a personal blockchain assistant that handles your computations privately. This is great for personal games played locally.</li>
+                <li><strong>A Small Group</strong>--This is a collaborative environment where a select few can perform extensive computations together. A good example is Battle royale games, which have a small group of players but require low latency for gamers in a specific region.</li>
+                <li><strong>A Large Community</strong>--The app chain here serves a broad user base, similar to hosting a public festival where everyone is invited.</li>
+            </ol>
+            <h4>Purpose--What Is It For?</h4>
+            <ol>
+                <li><strong>Single Contract</strong>--The app chain focuses on a specific contract that might be resource-intensive on the main chain. One level lower, an app chain could extend a particular part of a contract's storage; for example, it could be spun up for one highly active prediction market.</li>
+                <li><strong>Subset of Contracts</strong>--It caters to a specific set of contracts, providing a secondary blockspace market for them.</li>
+                <li><strong>Entire Network Extension</strong>--The app chain aims to expand the blockspace of an already saturated market. However, this raises questions about fragmenting ecosystems—for example, does having UniSwap on Optimism and Base further fragment liquidity? This isn't part of the app chain genre; these are more general-purpose rollups.</li>
+            </ol>
+
+            <h4>Visibility--Is It Public or Private?</h4>
+            <ol>
+                <li><strong>Public</strong>--Everything is transparent and visible to all—no secrets here.</li>
+                <li><strong>Hybrid Public & Private</strong>--Some elements are public, others are private, but you can always see your footprint.</li>
+                <li><strong>Private</strong>--Only you have access to your on-chain footprint.</li>
+            </ol>
+            <h4>Accessibility--Where Is It Based?</h4>
+            <ol>
+                <li><strong>Local</strong>--The app chain operates on your personal device (e.g., mobile, laptop, or at-home server). Ideal for games or heavy computations that are relevant only to you.</li>
+                <li><strong>Regional</strong>--Accessible to participants within a specific geographical area, similar to AWS regions' operations.</li>
+                <li><strong>Global</strong>--Open to users worldwide, ensuring everyone has the same state information at all times.</li>
+            </ol>
+            <h4>Lifespan--How Long Will It Live?</h4>
+            <ol>
+                <li><strong>Ephemeral</strong>--Spun up when needed and shut down after fulfilling its purpose—like a pop-up store.</li>
+                <li><strong>Permanent</strong>--Designed to operate indefinitely, with no planned shutdown.</li>
+            </ol>
+            <h4>Configuration--Does the Chain Change?</h4>
+            <ol>
+                <li><strong>Block Time</strong>--This can be faster or slower, depending on requirements.</li>
+                <li><strong>Block Size</strong>--This may vary to accommodate different transaction types but can be closely tied to block time.</li>
+                <li><strong>Developer Personas</strong>--Kakarot App Chains tailored for Solidity developers. Dojo/Katana App Chains geared towards game developers. Starknet-Equivalent App Chains optimized for Cairo developers.</li>
+            </ol>
+            <p>
+                TL;DR - the app chain solution space is immense.
+            </p>
+        </section>
+        <section id="value-accrual">
+            <h2>Value Accrual & The Economics of App Chains</h2>
+            <p>
+                Regarding app chains, discourse on value accrual quickly turns to based numbers on a balance sheet. It isn't all about that. This Omakase app chain experience offers multiple avenues for "material" and "material-ish" value accrual.
+                <img src="../images/app-chain-omakase/value-accrual.jpeg" alt="Value Accrual" margin="auto" display="block">
+            </p>
+            <h3>"Material" Value Accrual</h3>
+            <ol>
+                <li><strong>Collective Treasury</strong>--Similar to the Superchain model, app chains on Starknet could opt-in to contribute a percentage of transaction fees (e.g., 2%) or on-chain revenue (e.g., 15%) to a shared treasury governed by the community.</li>
+                <li><strong>Service Providers</strong>--Operators like "Rollup-as-a-Service" (RaaS) or prover operators could deploy Service Level Agreements (SLAs) that directly benefit the ecosystem, possibly in a DePIN manner that accrues value to the Starknet ecosystem.</li>
+                <li><strong>Developer Revenue Control</strong>--App chains empower developers with greater command and control over generating revenue, promoting sustainability and longevity for their projects—a win-win for the entire ecosystem.</li>
+                <li><strong>Other ideas include Fee Burns et al., but I have yet to think much about this.</strong></li>
+            </ol>
+            <h3>"Material-ish" Value Accrual</h3>
+            <p>
+                Starknet's transaction fees are trending toward zero. By aggregating block proofs from multiple Cairo chains and using aggregator solutions like SHARP, the verification costs are shared, leading to faster finality and lower fees for users. Lower transaction fees mean users retain more value, enhancing the overall attractiveness of the ecosystem.
+            </p>
+            <h3>Building Moats with Intellectual Capital</h3>
+            <p>
+                App chains on Starknet are more than technical infrastructures; they are incubators for innovation. As innovation sandboxes, they allow developers to exercise significant sovereignty over the platform's configuration and stack, allowing them to experiment with new ideas that Starknet may not currently support given network constraints (like transaction and block size limits). These sandboxes can lead to breakthroughs that benefit the Starknet ecosystem, attracting users and migrating TVL.
+            </p>
+            <h3>Inbound Innovation & The Flow of Knowledge</h3>
+            <p>
+                Innovation sandboxes like Madara and Katana can be one of many options for app chain builders in the Starknet ecosystem. Supporting diverse app chain stacks is yet another way to provide greater flexibility and opportunity to Starknet ecosystem developers.
+            </p>
+            <ol>
+                <li><strong>Cairo App Chains</strong>--StarkEx, Madara, and Katana are all part of the Cairo family.</li>
+                <li><strong>Beyond Cairo</strong>--Thanks to Garaga (shoutout to Felt!), Starknet can efficiently verify proofs from foreign proving systems. For Starknet app chain developers, verifying Risc0, Circom, and Noir is possible. Even frameworks like OP Succinct chains or Protokit and Zeko from the o1js/Mina ecosystem are possible app chain frameworks Starknet could verify in the future.</li>
+            </ol>
+            <p>
+                Intellectual capital is more likely to accrue and be sticky when there is an opportunity to be flexible and participate in the cross-pollination of ideas. A "Starknet App Chain Omakase" scenario creates a positive feedback loop driven by openness to innovation to embed intellectual capital in the Starknet ecosystem. <strong>Where else would you find Cairo, Noir, and o1js/Kimchi app chains and being interoperable? </strong>
+            </p>
+        </section>
+    </div>
+</body>
+</html>

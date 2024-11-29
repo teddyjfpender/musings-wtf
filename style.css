@@ -1,6 +1,6 @@
 :root {
     /* Define color variables */
-    --color-background: #121212;
+    --color-background: #111111;
     --color-primary: #00ff00;
     --color-secondary: #50fa7b;
     --color-tertiary: #ffffff;
@@ -55,6 +55,10 @@ body {
     align-items: center;
     width: 100%;
     margin: 0 auto;
+}
+
+strong {
+    color: var(--color-primary);
 }
 
 table {
