@@ -8,6 +8,58 @@ The ASCII art in the header is ANSI SHADOW generated using https://www.asciiart.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>musings.wtf</title>
     <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Set the size of the dashboard container */
+         /* Root Variables */
+         :root {
+            --color-background: #000000;
+            --max-dashboard-width: 90%; /* Responsive width */
+            --image-max-width: 100%; /* Images take up full container width */
+            --image-margin: 20px 0; /* Space between images */
+        }
+
+        /* Dashboard Container */
+        #dashboard {
+            width: var(--max-dashboard-width);
+            max-width: 800px; /* Maximum width */
+            margin: 0 auto; /* Center the dashboard */
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0; /* Optional padding */
+            box-sizing: border-box; /* Ensure padding doesn't affect width */
+        }
+
+        /* Images within Dashboard */
+        #dashboard img {
+            max-width: var(--image-max-width);
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Remove inline spacing */
+            margin: var(--image-margin); /* Space around images */
+            border: 2px solid #fff; /* Optional: Add border for better visibility */
+            border-radius: 8px; /* Optional: Rounded corners */
+        }
+
+        /* Optional: Responsive Adjustments */
+        @media (max-width: 600px) {
+            #dashboard {
+                padding: 10px 0;
+            }
+
+            #dashboard img {
+                margin: 10px 0;
+            }
+        }
+
+        /* Additional Styles (if any) */
+        /* Ensure body has appropriate background color */
+        body {
+            background-color: var(--color-background);
+            margin: 0;
+            padding: 0;
+        }
+    </style>
     <!-- Vercel Analytics Script -->
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -35,10 +87,14 @@ Source: https://github.com/teddyjfpender/musings-wtf
             <a href="../starkhub/dashboard.html">StarkHub</a>
         </p>
     </div>
-    <div id="table-container">
-        <p>Nothing to see yet.</p>
-        <p>Check back later!</p>
+
+    <div id="dashboard">
+       <!-- Import the png from ./images-->
+         <img src="./images/starknet_tvl.png" alt="TVL">
+         <img src="./images/starknet_improvements.png" alt="Improvements">
+         <img src="./images/user_activity.png" alt="Activity">
     </div>
+    
     
 
     <div id="footer">
@@ -49,8 +105,5 @@ Source: https://github.com/teddyjfpender/musings-wtf
             <a href="https://www.linkedin.com/in/theodorejfp/">LinkedIn</a>
         </p>
     </div>
-
-    <script src="script.js"></script>
-
 </body>
 </html>
