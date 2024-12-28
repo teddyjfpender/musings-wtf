@@ -106,6 +106,19 @@ td a:hover {
     color: var(--color-tertiary);
 }
 
+#head a {
+    color: var(--color-secondary); /* Matches the secondary color */
+    text-decoration: none;
+}
+
+#head a:hover {
+    text-decoration: underline;
+}
+
+#head p {
+    color: var(--color-tertiary);
+}
+
 a {
     color: var(--color-secondary);
     text-decoration: none;
