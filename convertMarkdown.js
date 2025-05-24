@@ -93,6 +93,12 @@ fs.readFile(markdownFilePath, 'utf8', (err, markdownContent) => {
         // Generate ASCII art for the title (simplified version for now)
         const asciiArt = generateSimpleAsciiArt(title);
         finalHtml = finalHtml.replace('__ASCII_ART__', asciiArt);
+        
+        // Add custom theme for specific articles
+        const customTheme = getCustomTheme(title);
+        if (customTheme) {
+            finalHtml = finalHtml.replace('</head>', `    <style>\n${customTheme}\n    </style>\n</head>`);
+        }
 
         // 6. Write the final HTML to the output directory
         fs.writeFile(outputHtmlFilePath, finalHtml, 'utf8', (writeErr) => {
@@ -108,6 +114,19 @@ fs.readFile(markdownFilePath, 'utf8', (err, markdownContent) => {
         });
     });
 });
+
+function getCustomTheme(title) {
+    const customThemes = {
+        'Trust Issues & Insights as a Service': `        :root {
+            /* Warm yellow theme - kinder and less harsh */
+            --color-primary: #F1C40F; /* Warm golden yellow */
+            --color-secondary: #F39C12; /* Rich amber */
+            --color-tertiary: #FDF2E9; /* Soft cream for text */
+        }`
+    };
+    
+    return customThemes[title] || null;
+}
 
 function generateSimpleAsciiArt(title) {
     // For now, we'll have specific ASCII art for known titles
