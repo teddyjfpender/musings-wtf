@@ -1,5 +1,11 @@
 [
   {
+    "date": "2025-05-24",
+    "title": "Trust Issues & Insights as a Service",
+    "description": "I've been thinking about information finance and its relevance to rollups for the past few weeks. After reading Dave White's [article](https://www.paradigm.xyz/2024/12/distribution-markets) on dist...",
+    "link": "posts/trust-issues.html"
+  },
+  {
     "title": "Starknet - App Chain Omakase",
     "date": "2024-11-29",
     "description": "An Omakase App Chain Experience on Starknet",

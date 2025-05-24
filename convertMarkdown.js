@@ -55,7 +55,13 @@ fs.readFile(markdownFilePath, 'utf8', (err, markdownContent) => {
         }
     }
 
-    // 3. Convert Markdown to HTML
+    // 3a. Convert Obsidian-style images to standard markdown
+    markdownContent = markdownContent.replace(
+        /!\[\[([^\]]+)\]\]/g,
+        (_, p) => `![](${p.trim()})`
+    );
+
+    // 3b. Convert Markdown to HTML
     const htmlContent = marked.parse(markdownContent);
 
     // 4. Read the HTML template
