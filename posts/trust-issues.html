@@ -12,30 +12,46 @@
 </head>
 <body>
     <div id="header">
-        <pre><a href="../index.html" style="text-decoration: none; color: var(--color-secondary);">&lt;&lt; Back to Home</a></pre>
+        <a href="../index.html">&larr; Back to musings.wtf</a>
+        <pre>
+████████╗██████╗ ██╗   ██╗███████╗████████╗ 
+╚══██╔══╝██╔══██╗██║   ██║██╔════╝╚══██╔══╝ 
+   ██║   ██████╔╝██║   ██║███████╗   ██║    
+   ██║   ██╔══██╗██║   ██║╚════██║   ██║    
+   ██║   ██║  ██║╚██████╔╝███████║   ██║    
+   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝    
+                                            
+██╗███████╗███████╗██╗   ██╗███████╗███████╗
+██║██╔════╝██╔════╝██║   ██║██╔════╝██╔════╝
+██║███████╗███████╗██║   ██║█████╗  ███████╗
+██║╚════██║╚════██║██║   ██║██╔══╝  ╚════██║
+██║███████║███████║╚██████╔╝███████╗███████║
+╚═╝╚══════╝╚══════╝ ╚═════╝ ╚══════╝╚══════╝
+                    
+a blog by teddy
+        </pre>
     </div>
 
     <div class="post-content">
         <h1>Trust Issues & Insights as a Service</h1>
-        <h1>Trust Issues &amp; Insights as a Service</h1>
-<p>I&#39;ve been thinking about information finance and its relevance to rollups for the past few weeks. After reading Dave White&#39;s <a href="https://www.paradigm.xyz/2024/12/distribution-markets">article</a> on distribution markets, I realized this is the common thread I sought.</p>
+        <p>I&#39;ve been thinking about information finance and its relevance to rollups for the past few weeks. After reading Dave White&#39;s <a href="https://www.paradigm.xyz/2024/12/distribution-markets">article</a> on distribution markets, I realized this is the common thread I sought.</p>
 <p>Whether it&#39;s fantasy sports or pricing blob fees, the ability to provide valuable information that drives more informed decisions is a game-changer. Providing insights as a service (&quot;IaaS&quot;?) resolves trust issues when providers can compete through incentivized markets. Distribution markets bridge these seemingly disparate domains, enabling new users to provide insights and informees to extract insights, hedge risks, and make smarter decisions.</p>
 <h2>The Rise of Info Finance and Neglect of Power Users</h2>
 <p>At its core, information finance is about monetizing information by aligning incentives between data producers and consumers. For consumers, the goal is to make better decisions based on the insights they consume. For producers, it&#39;s about showcasing the value of their predictive prowess or predictions or models.</p>
 <p>I see two core users of information finance: (1.) market participants and (2.) informees. Market participants can differ depending on the type of information finance application. In prediction markets, they are comfortable with providing discrete outcomes. In decision markets, they can express a continuous distribution describing the uncertainty they believe represents the future. Prediction markets, as they exist today, have discrete outcomes. They ask simple questions, like &quot;Will X happen tomorrow?&quot; (yes/no).</p>
-<p><img src="../images/prediction-markets.png" alt=""></p>
+<p><img src="../images/trust-issues/prediction-markets.png" alt=""></p>
 <p>While this works for some use cases, it falls short for and neglects personas like machine learning engineers, statisticians, or data scientists who prefer expressing predictions as distributions over a range of outcomes. This is where distribution markets shine. These markets allow for continuous outcomes, providing a more natural way for data-savvy individuals (and teams) to showcase their predictive models and better serve them to provide their insights as a service.</p>
-<p><img src="../images/distribution-markets.png" alt=""></p>
+<p><img src="../images/trust-issues/distribution-markets.png" alt=""></p>
 <p>Got an example? Of course, I do! Everyone loves election statistics; let&#39;s start there. When a newspaper like The Economist posts its election model updates, it shows it as a distribution (although this isn&#39;t a continuous distribution, it&#39;ll serve its purpose for now).</p>
-<p><img src="../images/election-distribution-market.png" alt=""></p>
+<p><img src="../images/trust-issues/election-distribution-market.png" alt=""></p>
 <p>Informees can see that Trump&#39;s likely range of electoral votes is between 189 and 327 (he got 312–inside the range). Does this map to a prediction market? Yes and no. It does map because one could take the model&#39;s median scenario and participate in a prediction market. It certainly doesn&#39;t map well to being able to express what the model is describing, though! Thus, I would lean that prediction markets neglect the producer of these insights. It is also hard to evaluate two different election models based solely on their median prediction–one model could have the correct median but a vast domain (i.e. a median of 312 and a domain spanning from 0 to 538). Another could have an incorrect median but a very narrow domain (i.e. a median of 301 and a domain of 287 to 313). The latter could be considered the better model, but this cannot be expressed well in a discrete prediction market; in such a case, the latter model is a losing model when using the median simulation.</p>
 <p>Then we have trust issues with all these different election models–who has the best model? Why should we trust one model over another? Is there a hivemind model of models we can look to for a collective view?</p>
 <p>Elections don&#39;t happen often enough, and data sampling is expensive and time-consuming for pollsters. Not least, <a href="https://x.com/C1aranMurray/status/1854292152689262703">BTS</a> approaches are more accurate than commonplace polling techniques.</p>
 <h2>Fantasy Sports: Trust Issues but Data Rich</h2>
 <p>Alternatively, sports are rich with data. Fantasy sports, like ESPN&#39;s Fantasy Football, thrive on predictive analytics. In ~2019, ESPN integrated <a href="https://developer.ibm.com/articles/player-insights-with-watson/">IBM Watson</a> to help inform users about players they could put into their starting lineups, giving users insights into potential weekly performance.</p>
-<p><img src="../images/watson-boom-bust.png" alt=""></p>
+<p><img src="../images/trust-issues/watson-boom-bust.png" alt=""></p>
 <p>But once again how accurate are these insights? Could other models outperform Watson? Trust issues abound and users were often frustrated with the product they received.</p>
-<p><img src="../images/watson-reddit-review.png" alt=""></p>
+<p><img src="../images/trust-issues/watson-reddit-review.png" alt=""></p>
 <p>Today, there is no central hub to compare the effectiveness of such models (a real shame when we look at how <a href="https://openrouter.ai/rankings">popular LLM rankings</a> are and how that drives good competition). Platforms like <a href="https://www.stokastic.com/join/?gad_source=1&gclid=Cj0KCQiAsOq6BhDuARIsAGQ4-zjs9VuY1C_t09PHqFTngUsZ7KchF8IroILW-ric5M_iqxbWL6DOMiUaAkf2EALw_wcB">Stokastic</a> provide premium insights; users pay to optimize their fantasy rosters. However, consumers need a transparent way to evaluate which provider offers the best value.</p>
 <p>Distribution markets could change this. They allow predictive model providers to compete in a market catered towards their predictive style in a transparent, verifiable manner. By expressing predictions as distributions rather than discrete values, these markets could inform fantasy sports enthusiasts about the true value of different insights/analytics providers. Informees could:</p>
 <ul>

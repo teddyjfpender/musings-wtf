@@ -34,6 +34,8 @@ fs.readFile(markdownFilePath, 'utf8', (err, markdownContent) => {
     const lines = markdownContent.split('\n');
     if (lines[0].startsWith('# ')) {
         title = lines[0].substring(2).trim();
+        // Remove the first H1 from markdown content to avoid duplication
+        markdownContent = lines.slice(1).join('\n');
     }
 
     // Extract description
@@ -55,10 +57,23 @@ fs.readFile(markdownFilePath, 'utf8', (err, markdownContent) => {
         }
     }
 
-    // 3a. Convert Obsidian-style images to standard markdown
+    // 3a. Convert Obsidian-style images to standard markdown and fix paths
     markdownContent = markdownContent.replace(
         /!\[\[([^\]]+)\]\]/g,
-        (_, p) => `![](${p.trim()})`
+        (_, p) => {
+            let imagePath = p.trim();
+            // If path starts with ../, it's relative to markdown file, adjust for posts/ directory
+            if (imagePath.startsWith('../')) {
+                imagePath = imagePath.substring(3); // Remove ../
+                // Check if it's just a filename without directory, add article-specific subdirectory
+                if (imagePath.startsWith('images/') && !imagePath.includes('/', 7)) {
+                    // Extract just the filename from images/filename.png
+                    const filename = imagePath.substring(7); // Remove "images/"
+                    imagePath = `images/${articleName}/${filename}`;
+                }
+            }
+            return `![](../${imagePath})`;
+        }
     );
 
     // 3b. Convert Markdown to HTML
@@ -74,6 +89,10 @@ fs.readFile(markdownFilePath, 'utf8', (err, markdownContent) => {
         // 5. Replace placeholders
         let finalHtml = templateContent.replace(/__TITLE__/g, title);
         finalHtml = finalHtml.replace('__CONTENT__', htmlContent);
+        
+        // Generate ASCII art for the title (simplified version for now)
+        const asciiArt = generateSimpleAsciiArt(title);
+        finalHtml = finalHtml.replace('__ASCII_ART__', asciiArt);
 
         // 6. Write the final HTML to the output directory
         fs.writeFile(outputHtmlFilePath, finalHtml, 'utf8', (writeErr) => {
@@ -85,12 +104,53 @@ fs.readFile(markdownFilePath, 'utf8', (err, markdownContent) => {
             console.log(`Output written to ${outputHtmlFilePath}`);
 
             // 7. Update posts.json
-            updatePostsJson(title, description, `posts/${articleName}.html`);
+            updatePostsJson(title, description, `${articleName}.html`);
         });
     });
 });
 
-function updatePostsJson(title, description, link) {
+function generateSimpleAsciiArt(title) {
+    // For now, we'll have specific ASCII art for known titles
+    // and a fallback for others
+    const asciiArtMap = {
+        'Trust Issues & Insights as a Service': `████████╗██████╗ ██╗   ██╗███████╗████████╗ 
+╚══██╔══╝██╔══██╗██║   ██║██╔════╝╚══██╔══╝ 
+   ██║   ██████╔╝██║   ██║███████╗   ██║    
+   ██║   ██╔══██╗██║   ██║╚════██║   ██║    
+   ██║   ██║  ██║╚██████╔╝███████║   ██║    
+   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝    
+                                            
+██╗███████╗███████╗██╗   ██╗███████╗███████╗
+██║██╔════╝██╔════╝██║   ██║██╔════╝██╔════╝
+██║███████╗███████╗██║   ██║█████╗  ███████╗
+██║╚════██║╚════██║██║   ██║██╔══╝  ╚════██║
+██║███████║███████║╚██████╔╝███████╗███████║
+╚═╝╚══════╝╚══════╝ ╚═════╝ ╚══════╝╚══════╝`,
+        'Are STARKs The Endgame?': `█████╗ ██████╗ ███████╗    ███████╗████████╗ █████╗ ██████╗ ██╗  ██╗███████╗    ████████╗██╗  ██╗███████╗
+██╔══██╗██╔══██╗██╔════╝    ██╔════╝╚══██╔══╝██╔══██╗██╔══██╗██║ ██╔╝██╔════╝    ╚══██╔══╝██║  ██║██╔════╝
+███████║██████╔╝█████╗      ███████╗   ██║   ███████║██████╔╝█████╔╝ ███████╗       ██║   ███████║█████╗  
+██╔══██║██╔══██╗██╔══╝      ╚════██║   ██║   ██╔══██║██╔══██╗██╔═██╗ ╚════██║       ██║   ██╔══██║██╔══╝  
+██║  ██║██║  ██║███████╗    ███████║   ██║   ██║  ██║██║  ██║██║  ██╗███████║       ██║   ██║  ██║███████╗
+╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝    ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝       ╚═╝   ╚═╝  ╚═╝╚══════╝
+                                                                                                            
+███████╗███╗   ██╗██████╗  ██████╗  █████╗ ███╗   ███╗███████╗██████╗                                     
+██╔════╝████╗  ██║██╔══██╗██╔════╝ ██╔══██╗████╗ ████║██╔════╝╚════██╗                                    
+█████╗  ██╔██╗ ██║██║  ██║██║  ███╗███████║██╔████╔██║█████╗    ▄███╔╝                                    
+██╔══╝  ██║╚██╗██║██║  ██║██║   ██║██╔══██║██║╚██╔╝██║██╔══╝    ▀▀══╝                                     
+███████╗██║ ╚████║██████╔╝╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗  ██╗                                       
+╚══════╝╚═╝  ╚════╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝  ╚═╝`
+    };
+    
+    // Return specific ASCII art if available, otherwise a simple fallback
+    return asciiArtMap[title] || `███╗   ███╗██╗   ██╗███████╗██╗███╗   ██╗ ██████╗ ███████╗
+████╗ ████║██║   ██║██╔════╝██║████╗  ██║██╔════╝ ██╔════╝
+██╔████╔██║██║   ██║███████╗██║██╔██╗ ██║██║  ███╗███████╗
+██║╚██╔╝██║██║   ██║╚════██║██║██║╚██╗██║██║   ██║╚════██║
+██║ ╚═╝ ██║╚██████╔╝███████║██║██║ ╚████║╚██████╔╝███████║
+╚═╝     ╚═╝ ╚═════╝ ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝`;
+}
+
+function updatePostsJson(title, description, file) {
     fs.readFile(postsJsonPath, 'utf8', (readErr, data) => {
         let posts = [];
         if (!readErr && data) {
@@ -110,17 +170,17 @@ function updatePostsJson(title, description, link) {
             date: currentDate,
             title: title,
             description: description,
-            link: link // Ensure this matches the structure in posts.json
+            file: file // Use 'file' to match the structure expected by script.js
         };
 
         // Check for duplicates and update if necessary
-        const existingPostIndex = posts.findIndex(post => post.link === newPostEntry.link);
+        const existingPostIndex = posts.findIndex(post => post.file === newPostEntry.file);
         if (existingPostIndex !== -1) {
             posts[existingPostIndex] = newPostEntry; // Update existing entry
-            console.log(`Updated existing entry for ${link} in ${postsJsonPath}`);
+            console.log(`Updated existing entry for ${file} in ${postsJsonPath}`);
         } else {
             posts.push(newPostEntry);
-            console.log(`Added new entry for ${link} to ${postsJsonPath}`);
+            console.log(`Added new entry for ${file} to ${postsJsonPath}`);
         }
 
         // Sort posts by date (most recent first)

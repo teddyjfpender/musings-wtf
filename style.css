@@ -186,8 +186,27 @@ a {
 }
 
 .post-content p {
-    width: 90%; /* Text takes up 50% of the container width */
+    width: 90%; /* Text takes up 90% of the container width */
     text-align: justify; /* Makes the text evenly distributed across the width */
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+    width: 90%; /* Headings take up 90% of container width */
+    text-align: center; /* Center align headings */
+    word-wrap: break-word; /* Allow long headings to wrap */
+    hyphens: auto; /* Enable automatic hyphenation */
+    overflow-wrap: break-word; /* Force breaking of very long words */
+}
+
+.post-content ul,
+.post-content ol {
+    width: 90%; /* Lists take up 90% of container width */
+    align-self: flex-start; /* Align lists to the left within the centered container */
 }
 
 .post-content img {
@@ -206,9 +225,15 @@ a {
     margin: 10; /* Removes default margin, if any */
 }
 
-li {
+.post-content li {
     word-wrap: break-word; /* Ensures long words wrap to the next line */
     line-height: 1.6; /* Matches line-height for consistency */
-    text-align: justify; /* Aligns text similar to other elements */
-    width: 90%; /* Limits the width of the list */
+    text-align: left; /* Left align list items for better readability */
+    margin-bottom: 8px; /* Add some spacing between list items */
+}
+
+/* General li styling for other parts of the site */
+li {
+    word-wrap: break-word;
+    line-height: 1.6;
 }
