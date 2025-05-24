@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tstwo</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+    <div id="header">
+        <a href="../index.html">&larr; Back to musings.wtf</a>
+        <pre>
+██████╗  ██████╗ ██████╗ ████████╗██╗███╗   ██╗ ██████╗                       
+██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝██║████╗  ██║██╔════╝                       
+██████╔╝██║   ██║██████╔╝   ██║   ██║██╔██╗ ██║██║  ███╗                      
+██╔═══╝ ██║   ██║██╔══██╗   ██║   ██║██║╚██╗██║██║   ██║                      
+██║     ╚██████╔╝██║  ██║   ██║   ██║██║ ╚████║╚██████╔╝                      
+╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝  ╚═══╝ ╚═════╝                       
+                                                                                
+███████╗████████╗██╗    ██╗ ██████╗     ████████╗ ██████╗                     
+██╔════╝╚══██╔══╝██║    ██║██╔═══██╗    ╚══██╔══╝██╔═══██╗                    
+███████╗   ██║   ██║ █╗ ██║██║   ██║       ██║   ██║   ██║                    
+╚════██║   ██║   ██║███╗██║██║   ██║       ██║   ██║   ██║                    
+███████║   ██║   ╚███╔███╔╝╚██████╔╝       ██║   ╚██████╔╝                    
+╚══════╝   ╚═╝    ╚══╝╚══╝  ╚═════╝        ╚═╝    ╚═════╝                     
+                                                                                
+████████╗██╗   ██╗██████╗ ███████╗███████╗ ██████╗██████╗ ██╗██████╗ ████████╗
+╚══██╔══╝╚██╗ ██╔╝██╔══██╗██╔════╝██╔════╝██╔════╝██╔══██╗██║██╔══██╗╚══██╔══╝
+    ██║    ╚████╔╝ ██████╔╝█████╗  ███████╗██║     ██████╔╝██║██████╔╝   ██║   
+    ██║     ╚██╔╝  ██╔═══╝ ██╔══╝  ╚════██║██║     ██╔══██╗██║██╔═══╝    ██║   
+    ██║      ██║   ██║     ███████╗███████║╚██████╗██║  ██║██║██║        ██║   
+    ╚═╝      ╚═╝   ╚═╝     ╚══════╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝╚═╝        ╚═╝   
+a blog by teddy
+        </pre>
+    </div>
+
+    <div class="post-content">
+        <p>TStwo: A Weekend Side Quest Porting Stwo to TypeScript with Codex</p>
+<p>I do plan to write more on this, but these are some quick and dirty thoughts on an AI engineering sidequest I&#39;m finding fun and how I see it and the experience evolving.</p>
+<h2>Why I Picked Up This Side Quest</h2>
+<p><img src="https://pbs.twimg.com/media/GrVhFr6WwAEfFz2?format=jpg&name=medium" alt="Image"></p>
+<p>I wanted to see how a mixed AI engineering experience, one that is both local (with Cursor) and cloud-based (with Codex) would be when the task is decidedly not a LeetCode toy. That&#39;s what this <a href="https://github.com/teddyjfpender/tstwo">TStwo</a> repo is, an attempt at porting parts of Stwo&#39;s Rust-based repository to TypeScript. My choice of porting Stwo to TypeScript was partly because my thesis was good code begets good code—feed the copier great Rust and watch what spills out the other end; there are few better contexts to provide than good code.</p>
+<p>DeepMind&#39;s research has been my north star for gauging AI progress, so I decided to review this mixed experience (more specifically, Codex, though) with DeepMind&#39;s Levels of AGI lens as I went.</p>
+<p><em>TL;DR - sparks flew, but we&#39;re still one notch shy of fireworks.</em></p>
+<h2>Reviewing Codex with DeepMind&#39;s &quot;Levels of AGI&quot;</h2>
+<p>The following is a rough, posthumous first attempt at porting Stwo to TypeScript.</p>
+<p><strong>Performance — How strong is it at the exact task?</strong></p>
+<p>Better than the 90th percentile human engineer. Task completion, like Cursor, is way faster too. It tore through boilerplate and started nailing some finite-field arithmetic when primed with Rust snippets.</p>
+<p><strong>Generality — Can it leave its sandbox?</strong></p>
+<p>Is it learning new tasks? Maybe, but not really. One can argue that Codex is learning what Stwo is and how Circle STARKs work. &quot;Artificially Capable Intelligence&quot; is a good description. This project has been great in Rust → TypeScript land because it can already translate Rust to TypeScript. But it wouldn&#39;t be possible if I gave it only the Circle STARK paper and expected Stwo to come out the other end.</p>
+<p><strong>Implementation Design — Does it invent a clean architecture?</strong></p>
+<p>Middling. It mirrored some patterns but never asked, &quot;Hey, want to go functional instead?&quot; In hindsight, I should&#39;ve nudged it toward a more functional programming layout.</p>
+<p><strong>Economically Valuable Work — Would anyone pay for what it produced?</strong></p>
+<p>Yes, at least I did, by learning a ton. Even half-baked, the repo is already a teaching tool for me.</p>
+<p><strong>Autonomy — Fire-and-forget or babysitting?</strong></p>
+<p>Zero autonomy. I&#39;m the helicopter engineering manager in this scenario. One day, after a few hours of unsupervised hacking, I&#39;d like Codex to DM me on Slack to chat about the project; it waits for the next prompt.</p>
+<p>Net score: comfortably Level 3, &quot;Artificially Capable&quot; and better than the 90th percentile. Level 4—the one with design creativity—remains out of reach.</p>
+<h2>The Actual Mechanics (a.k.a. &quot;So What Did I Do?&quot;)</h2>
+<p>I only properly started this yesterday so I&#39;ve only managed a couple of things. Specifically that means</p>
+<ol>
+<li>Repo bootstrap. Set up a TypeScript monorepo mirroring the Rust crate&#39;s core/ directory, and left the Rust code comment for context.</li>
+<li>Prompt routine. Either I hand-picked a root node task (i.e., something that unlocks other tasks, like porting the field ops) or asked Codex to suggest one. Every prompt carried a mini-template—Typescript-style notes, best-practice reminders, and testing guidance.</li>
+<li>A twelve-hour speed bump. The environment setup for Codex was friction personified. Ditching any setup scripts unlocked real velocity.</li>
+<li>Two-step dance. Codex spit out TypeScript; Cursor (and my brain) patched any errors and edge cases on the fly. One annoying one was CI hanging on an infinite loop (yikes).</li>
+</ol>
+<p><img src="https://pbs.twimg.com/media/GrVgC2PWMAEHshz?format=png&name=large" alt="Image"></p>
+<p>Was my effort parallelisable? Not really. Most green-field ports aren&#39;t. But every finished module widens the blast radius for parallel work next weekend (or later tonight).</p>
+<h2>Velocity Hacks I&#39;m Still Missing</h2>
+<p>If I could wave a magic feature-flag, Codex would gain:</p>
+<ul>
+<li>Trade-off Tracker. &quot;Want functional purity or raw speed?&quot; Let me pick a branch and remember the alternative. I think this would be fun if it were possible to track all trade-offs in git and have a universe of implementations with different trade-offs (yay combinatorial spaces)</li>
+<li>SME Plug-ins. Could you drop a cryptography-pro agent next to Codex to implement Chaum–Pedersen over STARK curves without me Googling for half a day? Or add an agent with significant Cairo context to help build new contracts? That&#39;d be fun; Agents are the new widgets in workflows.</li>
+<li>Automated Roadmap. Continuous repo analysis that ranks PRs by expected impact—think mempool ordering for code changes.</li>
+<li>Performance Hawk. This past week&#39;s AlphaEvolve blog highlights the value of this much. Imagine if Stwo or other important core-tech products had an agent scouring through the codebase, finding 1% improvements every week or month (that&#39;d be equivalent to a ~10x improvement in Stone, since Stwo is 1000x faster than Stone).</li>
+</ul>
+<p>These are the accelerants that would be valuable for any GitHub repository.</p>
+<h2>Open-Source Etiquette (A Quick Interlude)</h2>
+<p>Fork the repo, respect the license, and credit the original authors. In DHH&#39;s words, OSS is a gift exchange; don&#39;t regift without a thank-you note. When possible, give back. Thank you, Stwo engineering team &lt;3.</p>
+<h2>What I Took Away (Besides Less Sleep)</h2>
+<p><img src="https://pbs.twimg.com/media/GrVee_DXIAArLUy?format=png&name=900x900" alt="Image"></p>
+<p>What I&#39;m missing in the development process is another human. Or maybe just a friend to build with. I really hate building things alone and few things are as fun as building something with someone else. When Codex (or a similar product) gains a that humanness, it&#39;ll be crazy cool. Some other things more generally,</p>
+<ul>
+<li>I&#39;m learning, but it&#39;s different. I absorbed repo layout wisdom much more than cryptographic nuance. Next up: auto-generate deep-dive docs to close that gap and educate myself.</li>
+<li>There is a new kind of pride emerging. Pre-GPT, finishing a feature felt heroic. I feel like the thrill of this Agent-Oriented Development comes from (1.) steering the AI and making judgment calls it can&#39;t yet make, (2.) understanding what the AI has done, and (3.) building a personal relationship with the AI, which makes it feel like a team effort.</li>
+<li>Human-in-the-loop matters. The fun sparks when I focus on architecture or try to discuss or decide if Codex&#39;s suggestion is &quot;clever&quot; or &quot;clever but wrong&quot;.</li>
+</ul>
+<h2>Prompt Craft in Three Points</h2>
+<p>It is no fun to wait 12 minutes expecting something large only to see a two-line diff file. My advice is to work on that prompt.</p>
+<ol>
+<li>Know your direction before you write the prompt. North star optional; compass mandatory. You need to know what the hell you&#39;re trying to achieve. &quot;Codex, build me a B2B SaaS&quot;, ain&#39;t it.</li>
+<li>Template the boring bits. Reusable headers for docs, tests, best practices, and style notes.</li>
+<li>Good inputs → good outputs. Yes, the cliché is still correct in 2025. That&#39;s why I chose to port good code.</li>
+</ol>
+<h2>Zooming Out: Tiny Sparks of AGI (And Why That&#39;s Fine)</h2>
+<p>Some argue that AGI will feel underwhelming when it arrives, as progress creeps in stages. I&#39;d agree with that after a weekend (truthfully, it was about 6 hours of real work) with Codex. The line between &quot;assisted porting&quot; and &quot;autonomous development&quot; is already smudging. For me, crossing that boundary in this project requires some scaffolding. Add the velocity hacks above, and the sparks might catch.</p>
+<p>When intelligence is abundant, the real puzzle becomes what to build next:</p>
+<ul>
+<li>Use generative benchmarks to simulate the payoff of a code change before writing it.</li>
+<li>Let agents queue potential PRs like high-value transactions, ordered for maximum compound gains.</li>
+</ul>
+<h2>Final Musings</h2>
+<p>TStwo is both a barely there proof-of-concept and an invitation to</p>
+<ol>
+<li><strong>Pick a codebase you love or have forgotten about</strong>. Fork it (respect the license) and upload it to Codex. See if you can make some improvements. Add value to Open Source projects.</li>
+<li><strong>Seed your AI copilot with rich context</strong>. Leave breadcrumbs for it—comments, examples, tests.    </li>
+<li><strong>Design feedback loops early</strong>. Whether it&#39;s unit tests that justify the AI through utility functions that make sense.</li>
+</ol>
+<p>I&#39;m excited to see where TStwo goes, but I&#39;m more excited about how much Open Source Software in the Starknet ecosystem can win with more of these models and the scaffolding that unlocks velocity and greater knowledge dissemination.</p>
+
+    </div>
+
+    <div id="footer">
+        <p>
+            <a href="../index.html">Home</a> |
+            <a href="https://github.com/teddyjfpender">GitHub</a> |
+            <a href="https://twitter.com/franklyteddy">Twitter</a> |
+            <a href="https://www.linkedin.com/in/theodorejfp/">LinkedIn</a>
+        </p>
+    </div>
+</body>
+</html>
