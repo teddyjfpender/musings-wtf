@@ -209,11 +209,59 @@ a {
     align-self: flex-start; /* Align lists to the left within the centered container */
 }
 
+.post-content section,
+.post-content footer {
+    width: 90%; /* Sections and footers take up 90% of container width */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align content within sections */
+}
+
+.post-content section p,
+.post-content footer p {
+    width: 100%; /* Paragraphs within sections take full section width */
+    text-align: justify; /* Justify text */
+}
+
+.post-content section h1,
+.post-content section h2,
+.post-content section h3,
+.post-content section h4,
+.post-content section h5,
+.post-content section h6,
+.post-content footer h1,
+.post-content footer h2,
+.post-content footer h3,
+.post-content footer h4,
+.post-content footer h5,
+.post-content footer h6 {
+    width: 100%; /* Headings within sections take full section width */
+    text-align: center; /* Center align headings */
+    word-wrap: break-word;
+    hyphens: auto;
+    overflow-wrap: break-word;
+}
+
+.post-content section ul,
+.post-content section ol,
+.post-content footer ul,
+.post-content footer ol {
+    width: 100%; /* Lists within sections take full section width */
+    align-self: flex-start;
+}
+
 .post-content img {
     display: block;
     margin: 20px auto; /* Centers the image with spacing */
-    max-width: 100%; /* Ensures the image scales properly */
+    max-width: 90%; /* Ensures the image scales properly and matches content width */
     height: auto; /* Maintains aspect ratio */
+    align-self: center; /* Ensure images are centered */
+}
+
+/* Ensure all direct children of post-content are properly centered */
+.post-content > * {
+    max-width: 90%;
+    align-self: center;
 }
 
 #header pre {
