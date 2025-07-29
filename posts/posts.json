@@ -1,5 +1,11 @@
 [
   {
+    "date": "2025-07-29",
+    "title": "Peer Prediction Markets",
+    "description": "TL;DR – Prediction markets, as we know them today, show us just one slice of what a group knows, and they break down whenever settlement is messy. Peer prediction markets, incentivised through Baye...",
+    "file": "peer-prediction-markets.html"
+  },
+  {
     "date": "2025-05-24",
     "title": "Tstwo",
     "description": "TStwo: A Weekend Side Quest Porting Stwo to TypeScript with Codex",
