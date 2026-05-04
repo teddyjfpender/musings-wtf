@@ -1,0 +1,42 @@
+{
+  "name": "musings-wtf",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun run scripts/build-content.ts && bunx vite",
+    "build": "bun run scripts/build-content.ts && bunx vite build",
+    "preview": "bunx vite preview",
+    "build-content": "bun run scripts/build-content.ts"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/vite": "^4.2.1",
+    "@types/bun": "latest",
+    "@types/d3": "^7.4.3",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.4",
+    "tailwindcss": "^4.2.1",
+    "vite": "^7.3.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
+    "@types/three": "^0.183.1",
+    "@vercel/analytics": "^1.6.1",
+    "d3": "^7.9.0",
+    "gray-matter": "^4.0.3",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^7.13.1",
+    "remark": "^15.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-html": "^16.0.1",
+    "remark-parse": "^11.0.0",
+    "three": "^0.183.2",
+    "unified": "^11.0.5"
+  }
+}

@@ -1,1 +1,6 @@
 .DS_Store
+node_modules
+dist
+public/content-manifest.json
+public/vault
+*.log

@@ -1,11 +1,15 @@
-# musings.wtf
+# musings-wtf
 
-to run this `python -m http.server 8000`
+To install dependencies:
 
-## For Blogs
-to generate the list of blog posts run: `node generatePosts.js`
+```bash
+bun install
+```
 
-## For Digital Dealings
-to get the latest conversations run: `node ./digital-dealings/fetchConversationsScript.js`
+To run:
 
+```bash
+bun run index.ts
+```
 
+This project was created using `bun init` in bun v1.3.3. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
