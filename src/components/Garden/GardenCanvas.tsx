@@ -1,5 +1,5 @@
-import { useMemo, useState, useRef, useCallback } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { useMemo, useState } from "react";
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Html } from "@react-three/drei";
 import * as THREE from "three";
 import { useNavigate } from "react-router-dom";
@@ -45,37 +45,19 @@ function NoteNode({
   onClick: () => void;
   isHovered: boolean;
 }) {
-  const meshRef = useRef<THREE.Mesh>(null);
-  const glowRef = useRef<THREE.Mesh>(null);
-
   const scale = isHovered ? 1.6 : 1;
+  const glowScale = isHovered ? 3 : 1.8;
   const baseSize = node.depth === 0 ? 0.25 : 0.18;
   const visibleColor = useMemo(
     () => new THREE.Color(node.color).lerp(new THREE.Color("#f2ead7"), 0.18),
     [node.color]
   );
 
-  useFrame(() => {
-    if (meshRef.current) {
-      meshRef.current.scale.lerp(
-        new THREE.Vector3(scale, scale, scale),
-        0.15
-      );
-    }
-    if (glowRef.current) {
-      const targetScale = isHovered ? 3 : 1.8;
-      glowRef.current.scale.lerp(
-        new THREE.Vector3(targetScale, targetScale, targetScale),
-        0.15
-      );
-    }
-  });
-
   return (
     <group position={node.position}>
       {/* Glow sphere */}
-      <mesh ref={glowRef}>
-        <sphereGeometry args={[baseSize, 16, 16]} />
+      <mesh scale={glowScale}>
+        <sphereGeometry args={[baseSize, 10, 10]} />
         <meshBasicMaterial
           color={visibleColor}
           transparent
@@ -86,12 +68,12 @@ function NoteNode({
 
       {/* Main sphere */}
       <mesh
-        ref={meshRef}
+        scale={scale}
         onPointerOver={(e) => { e.stopPropagation(); onHover(); }}
         onPointerOut={onUnhover}
         onClick={(e) => { e.stopPropagation(); onClick(); }}
       >
-        <sphereGeometry args={[baseSize, 16, 16]} />
+        <sphereGeometry args={[baseSize, 12, 12]} />
         <meshStandardMaterial
           color={visibleColor}
           emissive={visibleColor}
@@ -108,7 +90,6 @@ function NoteNode({
 function DecoStem({ stem }: { stem: DecoStem3D }) {
   const start = new THREE.Vector3(...stem.base);
   const end = new THREE.Vector3(...stem.tip);
-  const mid = start.clone().lerp(end, 0.5);
 
   const curve = useMemo(
     () => new THREE.LineCurve3(start, end),
@@ -125,7 +106,7 @@ function DecoStem({ stem }: { stem: DecoStem3D }) {
         <meshBasicMaterial color="#8d8067" transparent opacity={0.7} />
       </mesh>
       <mesh position={stem.tip}>
-        <sphereGeometry args={[stem.radius, 10, 10]} />
+        <sphereGeometry args={[stem.radius, 8, 8]} />
         <meshStandardMaterial
           color={stem.color}
           emissive={stem.color}
@@ -411,8 +392,15 @@ export default function GardenCanvas() {
         </div>
 
         <Canvas
+          frameloop="demand"
+          dpr={[1, 1.35]}
           camera={{ position: [0, 16, 20], fov: 45 }}
-          gl={{ antialias: true, alpha: true }}
+          gl={{
+            alpha: false,
+            antialias: false,
+            powerPreference: "low-power",
+            preserveDrawingBuffer: false,
+          }}
           onCreated={({ gl }) => {
             gl.setClearColor("#0b0b0a", 1);
             gl.toneMapping = THREE.ACESFilmicToneMapping;
